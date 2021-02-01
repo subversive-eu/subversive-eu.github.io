@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<title>Hi there! - Subversive Home</title>
+		<meta name="description" content="Personal site of Subversive-eu" />
+    <link rel="icon" href="images/icon.png" type="image/png">
+		<link rel="stylesheet" type="text/css" href="css/fonts.css?rv=20170910.1616" />
+		<link rel="stylesheet" type="text/css" href="css/default.css?rv=20170910.1616" />
+		<link rel="stylesheet" type="text/css" href="css/component.css?rv=20170910.1632" />
+		<script src="js/modernizr.custom.js"></script>
+	</head>
+	<body>
+		<div class="container">	
+            <header>
+                <h1>subversive-eu.github.io</h1>
+            </header>
+			<div class="main clearfix">
+				<nav id="menu" class="nav">					
+					<ul>
+						<li>
+							<a href="javascript:void(0);">
+								<span class="icon">
+									<i aria-hidden="true" class="icon-home"></i>
+								</span>
+								<span>Home</span>
+							</a>
+						</li>
+						<li>
+							<a href="https://subversive.eu/">
+								<span class="icon"> 
+									<i aria-hidden="true" class="icon-leaf"></i>
+								</span>
+								<span>Blog</span>
+							</a>
+						</li>
+						<li>
+<!--     				<a href="#">
+								<span class="icon">
+									not available :
+									<i aria-hidden="true" class="icon-portfolio"></i>
+									<i aria-hidden="true" class="icon-team"></i>
+									available :
+									<i aria-hidden="true" class="icon-bug"></i>
+									<i aria-hidden="true" class="icon-lab"></i>
+									<i aria-hidden="true" class="icon-leaf"></i>
+									<i aria-hidden="true" class="icon-home"></i>
+									<i aria-hidden="true" class="icon-mail"></i>
+									<i aria-hidden="true" class="icon-github"></i>
+								</span>
+								<span>Portfolio</span>
+							</a>-->
+						</li>
+						<li>
+							<a href="https://hugo-theme-subversive.netlify.app">
+								<span class="icon">
+									<i aria-hidden="true" class="icon-lab"></i>
+								</span>
+								<span>Hugo Theme Subversive</span>
+							</a>
+						</li>
+						<li>
+							<a href="mailto:subversive-eu@tutanota.com">
+								<span class="icon">
+									<i aria-hidden="true" class="icon-mail"></i>
+								</span>
+								<span>Email contact</span>
+							</a>
+						</li>
+						<li>
+							<a href="https://github.com/subversive-eu">
+								<span class="icon">
+									<i aria-hidden="true" class="icon-github"></i>
+								</span>
+								<span>Github</span>
+							</a>
+						</li>
+						<li>
+							<a href="https://subversive-eu.github.io/book-seo/">
+								<span class="icon"> 
+									<i aria-hidden="true" class="icon-lab"></i>
+								</span>
+								<span>book-seo</span>
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</div><!-- /container -->
+		<script>
+			//  The function to change the class
+			var changeClass = function (r,className1,className2) {
+				var regex = new RegExp("(?:^|\\s+)" + className1 + "(?:\\s+|$)");
+				if( regex.test(r.className) ) {
+					r.className = r.className.replace(regex,' '+className2+' ');
+			    }
+			    else{
+					r.className = r.className.replace(new RegExp("(?:^|\\s+)" + className2 + "(?:\\s+|$)"),' '+className1+' ');
+			    }
+			    return r.className;
+			};	
+
+			//  Creating our button in JS for smaller screens
+			var menuElements = document.getElementById('menu');
+			menuElements.insertAdjacentHTML('afterBegin','<button type="button" id="menutoggle" class="navtoogle active" aria-hidden="true"><i aria-hidden="true" class="icon-menu"> </i> Menu</button>');
+
+			//  Toggle the class on click to show / hide the menu
+			document.getElementById('menutoggle').onclick = function() {
+				changeClass(this, 'navtoogle active', 'navtoogle');
+			}
+
+			// http://tympanus.net/codrops/2013/05/08/responsive-retina-ready-menu/comment-page-2/#comment-438918
+			document.onclick = function(e) {
+				var mobileButton = document.getElementById('menutoggle'),
+					buttonStyle =  mobileButton.currentStyle ? mobileButton.currentStyle.display : getComputedStyle(mobileButton, null).display;
+
+				if(buttonStyle === 'block' && e.target !== mobileButton && new RegExp(' ' + 'active' + ' ').test(' ' + mobileButton.className + ' ')) {
+					changeClass(mobileButton, 'navtoogle active', 'navtoogle');
+				}
+			}
+		</script>
+	</body>
+</html>
